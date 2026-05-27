@@ -42,8 +42,6 @@ const Header = () => {
 
   const toggleMobileMenu = () => setMenuOpen((open) => !open);
 
-  const isMegaOpen = activeMenuId !== null;
-
   const headerPadding = scrolled ? 'py-2' : 'py-3';
   const headerShadow = scrolled
     ? 'shadow-sm'
@@ -111,6 +109,33 @@ const Header = () => {
                       isActive ? 'w-3/4' : 'w-0'
                     }`}
                   />
+
+                  {isActive && link.submenu && link.submenu.length > 0 && (
+                    <div
+                      className="hidden md:block absolute  -translate-x-1/2 top-full w-[200px] bg-white border border-border rounded-md shadow-mega animate-megaFadeIn z-[120]"
+                      onMouseEnter={() => openMega(link.id)}
+                      onMouseLeave={scheduleClose}
+                      role="region"
+                      aria-label={`${link.label} submenu`}
+                    >
+                      <div className="px-4 py-3">
+                       
+                        <ul className="list-none m-0 mt-3 p-0 flex flex-col gap-3">
+                          {link.submenu.map((sub) => (
+                            <li key={sub.label}>
+                              <a
+                                href={sub.href}
+                                onClick={() => setActiveMenuId(null)}
+                                className="block text-[12px] text-ink hover:text-accent-dark transition-colors duration-200 leading-snug"
+                              >
+                                {sub.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
                 </li>
               );
             })}
@@ -153,47 +178,6 @@ const Header = () => {
         </button>
       </div>
 
-      {isMegaOpen && (
-        <div
-          className="hidden md:block absolute left-0 right-0 top-full bg-white border-t border-border shadow-mega animate-megaFadeIn"
-          onMouseEnter={() => openMega(activeMenuId)}
-          onMouseLeave={scheduleClose}
-          role="region"
-          aria-label="Site sections"
-        >
-          <div className="container max-w-7xl mx-auto flex items-start gap-6 py-7 pb-8">
-            <div className="shrink-0 w-[60px]" aria-hidden="true" />
-            <div className="flex-1">
-              <div className="grid grid-cols-9 gap-1">
-                {NAV_LINKS.map((item) => (
-                  <div
-                    key={item.id}
-                    className="min-w-0 px-1"
-                    onMouseEnter={() => openMega(item.id)}
-                  >
-                    {item.submenu && item.submenu.length > 0 ? (
-                      <ul className="list-none m-0 p-0 flex flex-col gap-4">
-                        {item.submenu.map((sub) => (
-                          <li key={sub.label}>
-                            <a
-                              href={sub.href}
-                              onClick={() => setActiveMenuId(null)}
-                              className="block xl:text-[12px] text-ink hover:text-accent-dark transition-colors duration-200 leading-snug"
-                            >
-                              {sub.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="shrink-0 w-[130px]" aria-hidden="true" />
-          </div>
-        </div>
-      )}
     </motion.header>
   );
 };

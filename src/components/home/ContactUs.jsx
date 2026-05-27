@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CONTACT_US } from '../../data/home';
 
@@ -35,6 +35,72 @@ const inputClass =
 
 const ContactUs = () => {
   const { eyebrow, title, formTitle, description, image, fields } = CONTACT_US;
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    serviceType: '',
+    origin: '',
+    destination: '',
+    cargoDetails: '',
+  });
+  const [errors, setErrors] = useState({});
+
+  const updateField = (field) => (event) => {
+    const { value } = event.target;
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: '' }));
+  };
+
+  const validateForm = () => {
+    const nextErrors = {};
+
+    if (!formData.name.trim()) nextErrors.name = 'Name is required.';
+    if (!formData.company.trim()) nextErrors.company = 'Company name is required.';
+
+    if (!formData.email.trim()) {
+      nextErrors.email = 'Email ID is required.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      nextErrors.email = 'Please enter a valid email address.';
+    }
+
+    if (!formData.phone.trim()) {
+      nextErrors.phone = 'Phone number is required.';
+    } else if (!/^[\d+\s()-]{7,}$/.test(formData.phone.trim())) {
+      nextErrors.phone = 'Please enter a valid phone number.';
+    }
+
+    if (!formData.serviceType) nextErrors.serviceType = 'Please select a service type.';
+    if (!formData.origin) nextErrors.origin = 'Please select an origin.';
+    if (!formData.destination) {
+      nextErrors.destination = 'Please select a destination.';
+    }
+    if (!formData.cargoDetails.trim()) {
+      nextErrors.cargoDetails = 'Cargo details are required.';
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!validateForm()) return;
+
+    // Hook this to API integration when backend is available.
+    setFormData({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      serviceType: '',
+      origin: '',
+      destination: '',
+      cargoDetails: '',
+    });
+    setErrors({});
+  };
 
   return (
     <section
@@ -73,52 +139,130 @@ const ContactUs = () => {
                 {description}
               </p>
 
-              <form className="mt-6 space-y-3.5" onSubmit={(e) => e.preventDefault()}>
+              <form className="mt-6 space-y-3.5" onSubmit={handleSubmit} noValidate>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                  <input className={inputClass} type="text" placeholder="Name" />
-                  <input className={inputClass} type="text" placeholder="Company Name" />
-                  <input className={inputClass} type="email" placeholder="Email ID" />
-                  <input className={inputClass} type="tel" placeholder="Phone No." />
+                  <div>
+                    <input
+                      className={inputClass}
+                      type="text"
+                      placeholder="Name"
+                      value={formData.name}
+                      onChange={updateField('name')}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-xs text-[#FFD9D9]">{errors.name}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      className={inputClass}
+                      type="text"
+                      placeholder="Company Name"
+                      value={formData.company}
+                      onChange={updateField('company')}
+                    />
+                    {errors.company && (
+                      <p className="mt-1 text-xs text-[#FFD9D9]">{errors.company}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      className={inputClass}
+                      type="email"
+                      placeholder="Email ID"
+                      value={formData.email}
+                      onChange={updateField('email')}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-[#FFD9D9]">{errors.email}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      className={inputClass}
+                      type="tel"
+                      placeholder="Phone No."
+                      value={formData.phone}
+                      onChange={updateField('phone')}
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-xs text-[#FFD9D9]">{errors.phone}</p>
+                    )}
+                  </div>
                 </div>
 
-                <select className={inputClass} defaultValue="">
-                  <option value="" disabled>
-                    Service Type
-                  </option>
-                  {fields.serviceTypes.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                  <select className={inputClass} defaultValue="">
+                <div>
+                  <select
+                    className={inputClass}
+                    value={formData.serviceType}
+                    onChange={updateField('serviceType')}
+                  >
                     <option value="" disabled>
-                      Origin
+                      Service Type
                     </option>
-                    {fields.origins.map((item) => (
+                    {fields.serviceTypes.map((item) => (
                       <option key={item} value={item}>
                         {item}
                       </option>
                     ))}
                   </select>
-                  <select className={inputClass} defaultValue="">
-                    <option value="" disabled>
-                      Destination
-                    </option>
-                    {fields.destinations.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
+                  {errors.serviceType && (
+                    <p className="mt-1 text-xs text-[#FFD9D9]">{errors.serviceType}</p>
+                  )}
                 </div>
 
-                <textarea
-                  className="w-full min-h-[98px] bg-white text-ink/80 text-[15px] px-4 py-3 outline-none border border-transparent focus:border-accent resize-none"
-                  placeholder="Cargo Details"
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <select
+                      className={inputClass}
+                      value={formData.origin}
+                      onChange={updateField('origin')}
+                    >
+                      <option value="" disabled>
+                        Origin
+                      </option>
+                      {fields.origins.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.origin && (
+                      <p className="mt-1 text-xs text-[#FFD9D9]">{errors.origin}</p>
+                    )}
+                  </div>
+                  <div>
+                    <select
+                      className={inputClass}
+                      value={formData.destination}
+                      onChange={updateField('destination')}
+                    >
+                      <option value="" disabled>
+                        Destination
+                      </option>
+                      {fields.destinations.map((item) => (
+                        <option key={item} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.destination && (
+                      <p className="mt-1 text-xs text-[#FFD9D9]">{errors.destination}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <textarea
+                    className="w-full min-h-[98px] bg-white text-ink/80 text-[15px] px-4 py-3 outline-none border border-transparent focus:border-accent resize-none"
+                    placeholder="Cargo Details"
+                    value={formData.cargoDetails}
+                    onChange={updateField('cargoDetails')}
+                  />
+                  {errors.cargoDetails && (
+                    <p className="mt-1 text-xs text-[#FFD9D9]">{errors.cargoDetails}</p>
+                  )}
+                </div>
 
                 <motion.button
                   type="submit"
