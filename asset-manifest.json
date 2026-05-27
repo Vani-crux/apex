@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/apex/static/css/main.9c73ec14.css",
+    "main.js": "/apex/static/js/main.39152256.js",
+    "static/media/trade-mapp.webp": "/apex/static/media/trade-mapp.ba384f6eee64c960ef43.webp",
+    "static/media/Banner.webp": "/apex/static/media/Banner.a498ac4adeb1642ca907.webp",
+    "static/media/Sustainability-bg.webp": "/apex/static/media/Sustainability-bg.c7a4423b6a3a33ee719c.webp",
+    "static/media/contactUs.webp": "/apex/static/media/contactUs.04ea7efe84d88bef6cae.webp",
+    "static/media/Pharma.webp": "/apex/static/media/Pharma.99164a03ec8acf4647a0.webp",
+    "static/media/textile.webp": "/apex/static/media/textile.0029c1d18fe91358ecce.webp",
+    "static/media/Services-bg.webp": "/apex/static/media/Services-bg.0f5c5f65248e3aaad4bd.webp",
+    "static/media/real-time-rightImage.webp": "/apex/static/media/real-time-rightImage.1841655e9889a525d938.webp",
+    "static/media/Air Freight.webp": "/apex/static/media/Air Freight.6735a027c6d804281a5f.webp",
+    "static/media/SeaFreight.webp": "/apex/static/media/SeaFreight.8856d6dc9f2fea8a6807.webp",
+    "static/media/Industrial.webp": "/apex/static/media/Industrial.6b7a6daa09da55293809.webp",
+    "static/media/Warehousing&Distribution.webp": "/apex/static/media/Warehousing&Distribution.5696a7fbbd4e66dbce5d.webp",
+    "static/media/ProjectCargo.webp": "/apex/static/media/ProjectCargo.df331428d5a1a81dcb2c.webp",
+    "static/media/globalreach.webp": "/apex/static/media/globalreach.efd251242d3f0a97fb4b.webp",
+    "static/media/GroundFreight.webp": "/apex/static/media/GroundFreight.2c14ebe0b916136219f4.webp",
+    "static/media/optimal.webp": "/apex/static/media/optimal.2e5866d39265c1888938.webp",
+    "static/media/paper-light.webp": "/apex/static/media/paper-light.b047b6106ad19d7f3eaa.webp",
+    "static/media/competative.webp": "/apex/static/media/competative.0dec8ed9d992eb348045.webp",
+    "static/media/Trade-background.webp": "/apex/static/media/Trade-background.23505fc97706c111a931.webp",
+    "static/media/real-time-leftImage.webp": "/apex/static/media/real-time-leftImage.200f6b5625ba79f276f6.webp",
+    "static/media/creativity.webp": "/apex/static/media/creativity.0ab4ceb7426bf1ae38f1.webp",
+    "static/media/futureready.webp": "/apex/static/media/futureready.94da1492bb528445e27c.webp",
+    "static/media/advisory-service.webp": "/apex/static/media/advisory-service.a8ccc6b8518af90ffc42.webp",
+    "static/media/personalised.webp": "/apex/static/media/personalised.125b9a3af06615feedc3.webp",
+    "static/media/CustomsBrokerage.webp": "/apex/static/media/CustomsBrokerage.df577730d92871ccd8f1.webp",
+    "static/media/exellence.webp": "/apex/static/media/exellence.17bf0c55475a58a2340f.webp",
+    "static/media/Automative.webp": "/apex/static/media/Automative.c7789d3510c067fbaab4.webp",
+    "static/media/Intrigrity.webp": "/apex/static/media/Intrigrity.bb825a58e0b71a310cdb.webp",
+    "static/media/Teamwork.webp": "/apex/static/media/Teamwork.206592be285f5b5dd453.webp",
+    "index.html": "/apex/index.html",
+    "main.9c73ec14.css.map": "/apex/static/css/main.9c73ec14.css.map",
+    "main.39152256.js.map": "/apex/static/js/main.39152256.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c73ec14.css",
+    "static/js/main.39152256.js"
+  ]
+}
