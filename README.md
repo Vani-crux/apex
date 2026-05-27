@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# ApexTrans Logistics — Static Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive, single-page logistics & freight company website built with React. The design is inspired by the [ApexTrans Logistics Figma file](https://www.figma.com/design/0rj1fqHc2ny63qz5WEzUeP/ApexTrans-Logistics).
+
+## Sections
+
+1. **Header** — sticky navigation with scroll-aware styling, mobile hamburger menu, anchor links and a CTA button.
+2. **Hero** — headline, sub-copy, dual CTAs, animated truck illustration, floating info cards and key stats.
+3. **Services** — six-card grid (Road, Ocean, Air, Warehousing, Express, Supply Chain) with custom SVG icons and hover effects.
+4. **About / Why Choose Us** — visual + feature checklist (Global Network, Real-Time Tracking, Certified & Secure, 24/7 Support).
+5. **Tracking** — interactive shipment-tracking form with validation and a step-by-step timeline result.
+6. **Stats** — animated counter strip (Years, Countries, Clients, On-Time Rate).
+7. **Testimonials** — three customer reviews with star ratings.
+8. **Contact Form** — full form with client-side validation:
+   - Required fields: Name, Email, Service, Message
+   - Optional fields: Phone, Origin, Destination
+   - Live validation on blur, error messages with ARIA attributes
+   - Simulated submit + success message
+9. **Footer** — brand, link columns, social icons and legal links.
+
+## Tech & Standards
+
+- **React 19** (Create React App)
+- **Component-per-folder** structure with co-located CSS
+- **CSS Custom Properties** (design tokens for colors, fonts, spacing, radii, shadows)
+- **Semantic HTML5** (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+- **Accessibility**: ARIA attributes on the form, screen-reader-only labels, keyboard-friendly nav, focus styles
+- **Responsive**: CSS Grid + Flexbox, mobile breakpoints at 960px / 768px / 560px
+- **No external UI library** — all icons are inline SVG
+
+## Folder Structure
+
+```
+src/
+├── App.js
+├── App.css
+├── index.js
+├── index.css                       # global tokens + utilities
+├── components/
+│   ├── Header/        Header.js + Header.css
+│   ├── Hero/          Hero.js + Hero.css
+│   ├── Services/      Services.js + Services.css
+│   ├── About/         About.js + About.css
+│   ├── Tracking/      Tracking.js + Tracking.css
+│   ├── Stats/         Stats.js + Stats.css
+│   ├── Testimonials/  Testimonials.js + Testimonials.css
+│   ├── ContactForm/   ContactForm.js + ContactForm.css
+│   └── Footer/        Footer.js + Footer.css
+└── data/
+    ├── services.js
+    └── testimonials.js
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+```bash
+npm start     # dev server at http://localhost:3000
+npm run build # production build
+npm test      # run tests
+```
 
-### `npm start`
+## Customization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Colors / fonts / spacing**: edit the `:root` variables in `src/index.css`.
+- **Services / testimonials**: edit `src/data/services.js` and `src/data/testimonials.js`.
+- **Nav links**: edit `NAV_LINKS` in `src/components/Header/Header.js`.
