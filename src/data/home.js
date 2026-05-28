@@ -388,19 +388,24 @@ export const FOOTER_INFO_CARDS = [
   {
     title: 'Head Office',
     lines: [
-      'B-41, U/G/F/, Gali No 19,',
-      'Rajapuri Baharat Vihar Road,',
-      'Uttam Nagar, Delhi,',
-      'India - 110059',
+      'Apextrans Logistics',
+      'B-22, Rajpur Views Enclave',
+      'Orchid Park, Sahastradhara',
+      'Kharsi, Mauza – Chalang',
+      'PO Sahastradhara',
+      'District Dehradun',
+      'State: Uttarakhand',
+      'PIN No.: 248013',
+      
     ],
   },
   {
     title: 'Email ID',
-    lines: ['knautiyal@apextrans.com'],
+    lines: ['info@apextrans.co'],
   },
   {
     title: 'Phone No.',
-    lines: ['000 000 0000'],
+    lines: ['9811141140'],
   },
   {
     title: 'Office Timing',

@@ -40,6 +40,30 @@ const Header = () => {
     setActiveMenuId(null);
   };
 
+  const scrollToAnchor = (href) => {
+    if (!href || !href.startsWith('#')) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const headerEl = document.querySelector('header');
+    const headerOffset = headerEl ? headerEl.offsetHeight : 0;
+    const targetTop =
+      target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior: 'smooth',
+    });
+  };
+
+  const handleAnchorClick = (event, href, shouldCloseMobile = true) => {
+    if (!href || !href.startsWith('#')) return;
+    event.preventDefault();
+    if (shouldCloseMobile) closeMobileMenu();
+    setActiveMenuId(null);
+    scrollToAnchor(href);
+  };
+
   const toggleMobileMenu = () => setMenuOpen((open) => !open);
 
   const headerPadding = scrolled ? 'py-2' : 'py-3';
@@ -61,7 +85,7 @@ const Header = () => {
         <motion.a
           href={BRAND.homeHref}
           className="inline-flex items-center gap-2.5 shrink-0"
-          onClick={closeMobileMenu}
+          onClick={(event) => handleAnchorClick(event, BRAND.homeHref)}
           aria-label={`${BRAND.name} home`}
           whileHover={{ y: -1 }}
           transition={{ duration: 0.2, ease: EASE }}
@@ -92,7 +116,10 @@ const Header = () => {
                 >
                   <motion.a
                     href={link.href}
-                    onClick={handleNavClick}
+                    onClick={(event) => {
+                      handleNavClick();
+                      handleAnchorClick(event, link.href, false);
+                    }}
                     onFocus={() => openMega(link.id)}
                     className={`inline-block whitespace-nowrap text-[12px] xl:text-[13px] py-4 px-1 max-md:block max-md:py-3.5 max-md:px-6 max-md:text-sm leading-tight relative transition-colors duration-200 ${
                       isActive
@@ -125,7 +152,9 @@ const Header = () => {
                             <li key={sub.label}>
                               <a
                                 href={sub.href}
-                                onClick={() => setActiveMenuId(null)}
+                                onClick={(event) =>
+                                  handleAnchorClick(event, sub.href)
+                                }
                                 className="block text-[12px] text-ink hover:text-accent-dark transition-colors duration-200 leading-snug"
                               >
                                 {sub.label}
@@ -145,7 +174,7 @@ const Header = () => {
         <motion.a
           href={HEADER_CTA.href}
           className="hidden md:inline-flex items-center justify-center px-5 py-2 bg-accent text-white font-bold text-[13px] rounded-md whitespace-nowrap shrink-0 tracking-wide transition-all duration-200 hover:bg-accent-dark hover:text-white hover:-translate-y-px hover:shadow-cta"
-          onClick={() => setActiveMenuId(null)}
+          onClick={(event) => handleAnchorClick(event, HEADER_CTA.href)}
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2, ease: EASE }}
