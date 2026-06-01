@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/apex/static/css/main.32887e1a.css",
-    "main.js": "/apex/static/js/main.95cb068e.js",
+    "main.css": "/apex/static/css/main.fd99c7f7.css",
+    "main.js": "/apex/static/js/main.9e5f8662.js",
     "static/media/trade-mapp.webp": "/apex/static/media/trade-mapp.ba384f6eee64c960ef43.webp",
     "static/media/Banner.webp": "/apex/static/media/Banner.a498ac4adeb1642ca907.webp",
     "static/media/Sustainability-bg.webp": "/apex/static/media/Sustainability-bg.c7a4423b6a3a33ee719c.webp",
@@ -32,11 +32,11 @@
     "static/media/Intrigrity.webp": "/apex/static/media/Intrigrity.bb825a58e0b71a310cdb.webp",
     "static/media/Teamwork.webp": "/apex/static/media/Teamwork.206592be285f5b5dd453.webp",
     "index.html": "/apex/index.html",
-    "main.32887e1a.css.map": "/apex/static/css/main.32887e1a.css.map",
-    "main.95cb068e.js.map": "/apex/static/js/main.95cb068e.js.map"
+    "main.fd99c7f7.css.map": "/apex/static/css/main.fd99c7f7.css.map",
+    "main.9e5f8662.js.map": "/apex/static/js/main.9e5f8662.js.map"
   },
   "entrypoints": [
-    "static/css/main.32887e1a.css",
-    "static/js/main.95cb068e.js"
+    "static/css/main.fd99c7f7.css",
+    "static/js/main.9e5f8662.js"
   ]
 }
