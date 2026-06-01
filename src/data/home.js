@@ -384,34 +384,21 @@ export const CONTACT_US = {
   },
 };
 
-export const FOOTER_INFO_CARDS = [
-  {
-    title: 'Head Office',
-    lines: [
-      'Apextrans Logistics',
-      'B-22, Rajpur Views Enclave',
-      'Orchid Park, Sahastradhara',
-      'Kharsi, Mauza – Chalang',
-      'PO Sahastradhara',
-      'District Dehradun',
-      'State: Uttarakhand',
-      'PIN No.: 248013',
-      
-    ],
-  },
-  {
-    title: 'Email ID',
-    lines: ['info@apextrans.co'],
-  },
-  {
-    title: 'Phone No.',
-    lines: ['9811141140'],
-  },
-  {
-    title: 'Office Timing',
-    lines: ['Monday – Saturday', '9:30 AM – 6:30 PM IST'],
-  },
-];
+export const FOOTER_CONTACT = {
+  officeHours: ['Monday – Saturday', '9:30 AM – 6:30 PM IST'],
+  phone: '9811141140',
+  phoneHref: 'tel:+919811141140',
+  email: 'info@apextrans.co',
+  emailHref: 'mailto:info@apextrans.co',
+  address: `Apextrans Logistics
+B-22, Rajpur Views Enclave
+Orchid Park, Sahastradhara
+Kharsi, Mauza – Chalang
+PO: Sahastradhara
+District: Dehradun
+State: Uttarakhand
+PIN No.: 248013`,
+};
 
 export const FOOTER_LEGAL_LINKS = [
   { label: 'Privacy', href: '#privacy' },
